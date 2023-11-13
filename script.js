@@ -1,9 +1,10 @@
 function translateText() {
     const textInput = document.getElementById('textInput').value;
-    const languageInput = document.getElementById('languageInput').value;
+    const languageSelect = document.getElementById('languageSelect');
+    const selectedLanguage = languageSelect.options[languageSelect.selectedIndex].value;
 
     // Simulate translation on the client side using Google Translate API
-    translate_text(textInput, languageInput);
+    translate_text(textInput, selectedLanguage);
 }
 
 function translate_text(text, target_language) {
