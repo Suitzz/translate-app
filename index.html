@@ -6,31 +6,37 @@
     <title>Translation App</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/libretranslate"></script>
-
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com/2.2.19/tailwind.min.css">
 
 </head>
+<style>
+    /* Add transitions to the button */
+    .transition-colors {
+      transition-property: background-color, color;
+      transition-duration: 0.2s;
+    }
+    
+    .transition-colors:hover {
+      background-color: #4c51bf;
+      color: white;
+    }
+  </style>
 <body>
-
-    <div class="container">
-        <h1>Translation App</h1>
-        <form id="translationForm">
-            <label for="textInput">Enter the text to translate:</label>
-            <textarea id="textInput" rows="4" cols="50" placeholder="Enter text..."></textarea>
-
-            <label for="languageSelect">Select the target language:</label>
-            <select id="languageSelect">
-                <option value="pt">Portuguese</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-                <!-- Add more options as needed -->
-            </select>
-            <button type="button" onclick="translateText()">Translate</button>
-
+    <div class="container mx-auto">
+        <h1 class="text-4xl font-bold">Translation App</h1>
+        <form id="translationForm" class="my-6">
+            <label for="textInput" class="block mb-2">Enter the text to translate:</label>
+            <textarea id="textInput" rows="4" placeholder="Enter text..." class="w-full rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+   
+            <label for="languageInput" class="block mb-2 mt-4">Enter the target language code:</label>
+            <input type="text" id="languageInput" placeholder="e.g., 'es' for Spanish" class="w-full rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+   
+            <button type="button" onclick="translateText()" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">Translate</button>
         </form>
-
-        <div id="resultContainer">
-            <h3>Result:</h3>
-            <p id="resultText"></p>
+   
+        <div id="resultContainer" class="hidden my-6">
+            <h3 class="text-2xl font-bold">Result:</h3>
+            <p id="resultText" class="mt-2"></p>
         </div>
     </div>
 
