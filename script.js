@@ -28,7 +28,7 @@ function translate_text(text, target_language) {
     .then(response => response.json())
     .then(data => {
         if (data.data && data.data.translations) {
-            resultText.innerText = `Original: ${text}\nTranslated: ${data.data.translations[0].translatedText}`;
+            resultText.innerText = `${data.data.translations[0].translatedText}`;
         } else {
             console.error('Translation Error:', data.error.message);
             resultText.innerText = `Translation Error: ${data.error.message}`;
