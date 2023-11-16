@@ -3,40 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Translation App</title>
+    <title>YaaBet</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/libretranslate"></script>
-
-
+    <script src="script.js"></script>
 </head>
 <body>
-
     <div class="container">
-        <h1>Translation App</h1>
+        <h1 class="title">YaaBet</h1>
         <form id="translationForm">
             <label for="textInput">Enter the text to translate:</label>
             <textarea id="textInput" rows="4" cols="50" placeholder="Enter text..."></textarea>
 
             <div class="select-language">
-
-            <label for="languageSelect">Select language:</label>
-            <select id="languageSelect">
-                <option value="pt">Portuguese</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-                <!-- Add more options as needed -->
+                <label class="translate-label" for="languageSelect">Select language:</label>
+                <div class="select-wrapper">
+                    <select class="translate-select" id="languageSelect">
+                        <option value="pt">Portuguese</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                    </select>
+                    <div class="select-border"></div>
+                </div>
+                <div class="flag-buttons">
+                    <button class="flag-button flag-button-pt" data-lang="pt">PT</button>
+                    <button class="flag-button flag-button-es" data-lang="es">ES</button>
+                    <button class="flag-button flag-button-fr" data-lang="fr">FR</button>
+                </div>
+                <button class="translate-button" type="button" onclick="translateText()">Translate</button>
             </div>
-            </select>
-            <button class="translate" type="button" onclick="translateText()">Translate</button>
-
         </form>
-
+        
+        <h3 class="output-title">Translation:</h3>
         <div class="output-box" id="resultContainer">
-            <h3>Translation:</h3>
             <p id="resultText"></p>
         </div>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
