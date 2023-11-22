@@ -1,193 +1,138 @@
-body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    color: #000; /* Update to your preferred text color */
-    background-color: #ffffff;
+/* Reset some default styles */
+body, h1, p, textarea, select, button {
     margin: 0;
     padding: 0;
 }
 
-.title {
-    text-align: center;
-}
-
-@media screen and (min-width: 768px) {
-    body {
-        font-size: 18px;
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 50px auto;
-    }
-}
-
-.container {
-    width: 100%;
+/* Apply a box-sizing border-box model to all elements */
+* {
     box-sizing: border-box;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #1e55b3;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+/* Set up a basic page style */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1faee;
+    color: #457b9d;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-label {
-    margin-bottom: 5px;
-}
-
-textarea, input {
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    width: 100%;
-    resize: none;
-}
-
-.button {
-    padding: 10px;
-    background-color: #ff2f3a;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.button:hover {
-    opacity: 0.8;
-}
-
-.translate-button:hover {
-    background-color: #ff4f58; /* Change to a different color on hover */
-}
-
-#resultContainer {
-    margin-top: 20px;
-}
-
-#resultText {
-    font-weight: bold;
-}
-
-.output-box {
-    background-color: white;
-    color: black;
-    border-radius: 8px;
-    padding: 20px;
-}
-
-.output-title {
-    text-align: left;
-    font-weight: normal;
-}
-
-.select-language {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 300px; /* Adjust the max-width as needed */
+/* Container styling */
+.container {
+    max-width: 800px;
     margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.translate-label {
-    font-weight: bold;
+/* Title styling */
+.title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #e63946;
+}
+
+/* Form styling */
+#translationForm {
+    margin-bottom: 20px;
+}
+
+.textInput {
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #a8dadc;
+    border-radius: 5px;
+}
+
+.selectLanguage {
+    display: flex;
+    flex-direction: column;
+}
+
+.translateLabel {
     margin-bottom: 10px;
 }
 
-.select-wrapper {
+.selectWrapper {
     position: relative;
-    width: 100%;
+    margin-bottom: 15px;
 }
 
-.translate-select {
+.translateSelect {
     width: 100%;
-    height: 40px;
-    border: none;
-    border-radius: 4px;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 5px; /* Adjust padding as needed */
-    appearance: none;
+    padding: 10px;
+    border: 1px solid #a8dadc;
+    border-radius: 5px;
 }
 
 .select-border {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     bottom: 0;
-    border: 2px solid #1e55b3; /* Strong selection border color */
-    border-radius: 4px;
-    pointer-events: none;
-    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #e63946;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
 }
 
-.translate-select:focus + .select-border {
-    border-color: #ff2f3a; /* Adjust the color for the focused state */
-    box-shadow: 0 0 5px rgba(255, 47, 58, 0.5); /* Add shadow for the focused state */
-}
-
-.flag-buttons {
+/* Flag button styling */
+.flagButtons {
     display: flex;
     justify-content: center;
-    margin-top: 10px; /* Add space between the dropdown and buttons */
+    margin-bottom: 15px;
 }
 
-.flag-button {
-    margin: 0 5px;
+.flagButton {
     width: 40px;
-    height: 40px;
+    height: 30px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.flag-button-pt,
-.flag-button-es,
-.flag-button-fr {
-    border: 2px solid #ffffff; /* White border */
-    border-radius: 4px; /* Adjust border-radius as needed */
-    margin-right: 10px; /* Adjust the margin as needed */
-}
-
-.flag-button-pt {
-    background: linear-gradient(to right, #008000 0%, #008000 50%, #ff0000 50%, #ff0000 100%);
-    font-weight: bold;
-}
-
-.flag-button-es {
-    background: linear-gradient(to bottom, #ff0000 0%, #ff0000 33%, #fcd116 33%, #fcd116 66%, #ff0000 66%, #ff0000 100%);
-    font-weight: bold;
-}
-
-.flag-button-fr {
-    background: linear-gradient(to right, #0055a4 0%, #0055a4 33%, #ffffff 33%, #ffffff 66%, #ff0000 66%, #ff0000 100%);
-    font-weight: bold;
-}
-
-.flag-button:hover {
-    opacity: 0.8;
-}
-
+/* Translate button styling */
 .translate-button {
-    margin-top: 10px;
     padding: 10px;
-    width: 100%;
-    background-color: #ff2f3a;
-    color: #ffffff;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    background-color: #e63946;
+    color: #f1faee;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .translate-button:hover {
-    background-color: #ff4f58; /* Change to a different color on hover */
+    background-color: #457b9d;
+}
+
+/* Text output styling */
+.textOutput {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #a8dadc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #457b9d;
+}
+
+/* Flag image styling */
+.flagButton img {
+    width: 20px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+/* Language name styling */
+.flagButtons span {
+    color: #000;
+    text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 }
